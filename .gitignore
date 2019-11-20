@@ -1,0 +1,6 @@
+.idea
+cmake*
+a.out
+*.o
+leoprintf.a
+main.c
