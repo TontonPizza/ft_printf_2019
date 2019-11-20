@@ -51,13 +51,9 @@ int			parse_zero(const char *format, int index, va_list a)
 
 	params = read_params(format + index + 1, '\0', a);
 	update_params(&params, 0);
-	result = ft_strdup_to_c(format + params.invalid, '\0');
-	result[1] = 0;
-	result = format_data(result, params, 1, 0);
+	result = ft_strdup_to_c(format + params.invalid + index + 1, '\0');
 	i = ft_strlen(result);
 	ft_putstr_fd(result, 1);
-	i += ft_strlen(format + params.invalid + 1);
-	ft_putstr_fd(format + params.invalid + 1, 1);
 	free(result);
 	return (i);
 }

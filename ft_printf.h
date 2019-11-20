@@ -59,12 +59,12 @@ int				parse_x(const char *format, int index, va_list a);
 int				parse_xm(const char *format, int index, va_list a);
 
 char			*format_data_d(char *d, t_params p, int neg);
-char			*format_data(char *d, t_params p, int neg, int ptx);
 char			*format_data_c0(char *d, t_params p);
-char			*format_data_s(char *d, t_params p, int neg, int ptx);
+char			*format_data_s(char *d, t_params p);
 char			*format_data_p(char *d, t_params p);
 char			*format_data_u(char *d, t_params p);
 char			*format_data_x(char *d, t_params p);
+char			*format_data_s0(t_params p);
 
 
 char			*join_char_and_free(char *str, char c);

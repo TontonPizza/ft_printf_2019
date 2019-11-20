@@ -27,9 +27,9 @@ int			parse_pc(const char *format, int index, va_list a)
 	if (params.invalid != -1)
 	{
 		free(result);
-		result = ft_strdup_to_c(format + params.invalid - 1, '%');
+		result = ft_strdup_to_c(format + params.invalid + index + 1, '%');
+		result[ft_strlen(result) - 1] = 0;
 	}
-	result = format_data(result, params, 1, 0);
 	i = ft_strlen(result);
 	ft_putstr_fd(result, 1);
 	free(result);
@@ -46,7 +46,7 @@ int			parse_s(const char *format, int index, va_list a)
 	params = read_params(format + index + 1, 's', a);
 	update_params(&params, 's');
 	result = vo_strdup_2(va_arg(a, char*));
-	result = format_data_s(result, params, 1, 0);
+	result = format_data_s(result, params);
 	i = ft_strlen(result);
 	ft_putstr_fd(result, 1);
 	free(result);
