@@ -65,3 +65,13 @@ void		read_width(const char *f, t_params *t, int *k, va_list arg)
 	if (t->hhyphen == 1)
 		t->hyphen = t->width;
 }
+
+void		read_width_0(const char *f, t_params *t, int *k)
+{
+	t->hwidth = 1;
+	t->width = vo_atoi(f, k);
+	t->hzero = 0;
+	if (t->hhyphen == 1)
+		t->hyphen = t->width;
+	*k = *k - 1;
+}

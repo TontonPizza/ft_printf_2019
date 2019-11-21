@@ -42,8 +42,8 @@ void				update_params(t_params *t, char c)
 		t->zero = 0;
 		t->hzero = 0;
 	}
-	if (t->hwidth)
-		t->hyphen = t->width;
+	if (t->hwidth && t->width < 0)
+		t->hyphen = -t->width;
 	if (t->hhyphen == 0 && t->zero < 0 && t->hzero)
 	{
 		t->hhyphen == 1;
@@ -64,6 +64,8 @@ t_params			read_params(const char *f, char c, va_list arg)
 	init_param(&r);
 	while (f[k] != c && r.invalid == -1)
 	{
+		if (k == 0 && f[k] != '0' && ft_isdigit(f[k]))
+			read_width_0(f, &r, &k);
 		if (f[k] == '0')
 			read_zero(f + k, &r, &k, arg);
 		if (f[k] == '-')
@@ -73,13 +75,9 @@ t_params			read_params(const char *f, char c, va_list arg)
 		if (f[k] == '*')
 			read_width(f + k, &r, &k, arg);
 		if (is_legal_char(f[k], c) == 0)
-		{
 			r.invalid = k;
-			break ;
-		}
 		if (is_legal_char(f[k], c) == -1)
 			k++;
 	}
-	update_params(&r, c);
 	return (r);
 }

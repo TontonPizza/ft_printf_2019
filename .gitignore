@@ -3,4 +3,5 @@ cmake*
 a.out
 *.o
 leoprintf.a
-main.c
+main.cpft/
+pft

@@ -44,6 +44,8 @@ void			read_zero(const char *f, t_params *t, int *k, va_list arg);
 void			read_hyphen(const char *f, t_params *t, int *k, va_list arg);
 void			read_point(const char *f, t_params *t, int *k, va_list arg);
 void			read_width(const char *f, t_params *t, int *k, va_list arg);
+void			read_width_0(const char *f, t_params *t, int *k);
+
 
 int				parse_flags(const char *f, int i, va_list a, int *c);
 
