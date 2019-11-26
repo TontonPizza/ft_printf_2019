@@ -26,6 +26,8 @@ int			format_data_c(char *d, t_params p, int len)
 	while (p.hwidth && p.width > count && 1 + 0 * (count++))
 		i += write(1, " ", 1);
 	i += write(1, d, len);
+	while (p.hwidth && p.width < 0 && -p.width > count && 1 + 0 * (count++))
+		i += write(1, " ", 1);
 	while (p.hhyphen && p.hyphen > count && 1 + 0 * (count++))
 		i += write(1, " ", 1);
 	return (count);
