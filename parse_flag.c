@@ -30,7 +30,7 @@ int				is_a_valid_flag(char c)
 	return (0);
 }
 
-void			init_flag(int (*f[255])(const char *, int, va_list))
+void			init_flag(int (*f[255])(const char *, va_list))
 {
 	f['\0'] = &parse_zero;
 	f['d'] = &parse_d;
@@ -44,16 +44,16 @@ void			init_flag(int (*f[255])(const char *, int, va_list))
 	f['%'] = &parse_pc;
 }
 
-int				parse_flags(const char *f, int i, va_list a, int *c)
+int				parse_flags(const char *f, va_list a, int *c)
 {
-	static int		(*parsers[255])(const char *, int, va_list);
+	static int		(*parsers[255])(const char *, va_list);
 	int				k;
 
 	if (parsers['d'] == NULL)
 		init_flag(parsers);
 	k = 1;
-	while (f[i + k] && !is_a_valid_flag(f[i + k]))
+	while (f[k] && !is_a_valid_flag(f[k]))
 		k++;
-	*c = *c + parsers[f[i + k]](f, i, a);
+	*c = *c + parsers[f[k]](f, a);
 	return (k + 1);
 }

@@ -22,12 +22,18 @@ SRC	=	ft_printf.c \
 		param_reader_1.c \
 		param_reader_2.c \
 		parse_flag.c \
-		flag_parser_1.c \
-		flag_parser_2.c \
-		format_data_1.c \
-		format_data_2.c \
 		helpers_1.c \
 		string_handlers.c \
+		parse_d.c \
+		parse_i.c \
+		parse_c.c \
+		parse_p.c \
+		parse_zero.c \
+		parse_pc.c \
+		parse_s.c \
+		parse_u.c \
+		parse_x.c \
+
 
 OBJ = $(SRC:.c=.o)
 

@@ -37,7 +37,7 @@ int		ft_printf(const char *format, ...)
 			i++;
 		}
 		if (format[i] == '%')
-			i += parse_flags(format, i, args, &count);
+			i += parse_flags(format + i, args, &count);
 		if (i >= lf)
 			break ;
 	}

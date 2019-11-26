@@ -46,28 +46,18 @@ void			read_point(const char *f, t_params *t, int *k, va_list arg);
 void			read_width(const char *f, t_params *t, int *k, va_list arg);
 void			read_width_0(const char *f, t_params *t, int *k);
 
+int				parse_flags(const char *f, va_list a, int *c);
 
-int				parse_flags(const char *f, int i, va_list a, int *c);
-
-int				parse_d(const char *format, int index, va_list a);
-int				parse_zero(const char *format, int index, va_list a);
-int				parse_p(const char *format, int index, va_list a);
-int				parse_i(const char *format, int index, va_list a);
-int				parse_c(const char *format, int index, va_list a);
-int				parse_pc(const char *format, int index, va_list a);
-int				parse_s(const char *format, int index, va_list a);
-int				parse_u(const char *format, int index, va_list a);
-int				parse_x(const char *format, int index, va_list a);
-int				parse_xm(const char *format, int index, va_list a);
-
-char			*format_data_d(char *d, t_params p, int neg);
-char			*format_data_c0(char *d, t_params p);
-char			*format_data_s(char *d, t_params p);
-char			*format_data_p(char *d, t_params p);
-char			*format_data_u(char *d, t_params p);
-char			*format_data_x(char *d, t_params p);
-char			*format_data_s0(t_params p);
-
+int				parse_d(const char *format, va_list a);
+int				parse_zero(const char *format, va_list a);
+int				parse_p(const char *format, va_list a);
+int				parse_i(const char *format, va_list a);
+int				parse_c(const char *format, va_list a);
+int				parse_pc(const char *format, va_list a);
+int				parse_s(const char *format, va_list a);
+int				parse_u(const char *format, va_list a);
+int				parse_x(const char *format, va_list a);
+int				parse_xm(const char *format, va_list a);
 
 char			*join_char_and_free(char *str, char c);
 char			*char_join_and_free(char *str, char c);

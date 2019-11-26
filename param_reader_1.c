@@ -27,7 +27,7 @@ void				init_param(t_params *t)
 	t->zero = 0;
 	t->hyphen = 0;
 	t->width = 0;
-	t->hyphen = 0;
+	t->hhyphen = 0;
 	t->hpoint = 0;
 	t->hwidth = 0;
 	t->hzero = 0;
