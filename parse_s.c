@@ -58,7 +58,6 @@ int			parse_s(const char *format, va_list a)
 {
 	t_params	params;
 	char		*result;
-	char		*data;
 	int			i;
 
 	params = read_params(format + 1, 's', a);

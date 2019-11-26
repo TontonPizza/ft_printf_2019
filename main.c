@@ -517,23 +517,24 @@ int		main()
 
 
 
-	i = printf("|%*d|\n", -14, 19);
-	i = ft_printf("|%*d|\n", -14, 19);
-	printf("%d\n", i);
+	i = printf("hello, %s.\n", "gavin");
+	j = ft_printf("hello, %s.\n", "gavin");
+	printf("%d %d\n", i, j);
 
-	printf("type = x\n");
-	i = printf("|%*x|\n", -14, 15987);
-	i = ft_printf("|%*x|\n", -14, 15987);
+//	printf("type = x\n");
+//	i = printf("|%*x|\n", -14, 15987);
+//	i = ft_printf("|%*x|\n", -14, 15987);
+//
+//	printf("type = u\n");
+//	i = printf("|%*5u|\n", -14, 159);
+//	i = ft_printf("|%*5u|\n", -14, 159);
+//
+//	printf("type = s\n");
+//	i = printf("|%*5s|\n", -14, "salut");
+//	i = ft_printf("|%*5s|\n", -14, "salut");
+//
+//	printf("type = p\n");
+//	i = printf("|%*5p|\n", -14, &i);
+//	i = ft_printf("|%*5p|\n", -14, &i);
 
-	printf("type = u\n");
-	i = printf("|%*5u|\n", -14, 159);
-	i = ft_printf("|%*5u|\n", -14, 159);
-
-	printf("type = s\n");
-	i = printf("|%*5s|\n", -14, "salut");
-	i = ft_printf("|%*5s|\n", -14, "salut");
-
-	printf("type = p\n");
-	i = printf("|%*5p|\n", -14, &i);
-	i = ft_printf("|%*5p|\n", -14, &i);
 }

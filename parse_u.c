@@ -18,6 +18,7 @@ char		*format_data_u(char *d, t_params p)
 	int		i;
 
 	r = ft_strdup(d);
+	free(d);
 	if (ft_strlen(d) != 0)
 	{
 		while (p.hpoint && p.point > ft_strlen(r))

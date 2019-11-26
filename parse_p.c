@@ -18,6 +18,7 @@ char		*format_data_p(char *d, t_params p)
 	int		i;
 
 	r = ft_strdup(d);
+	free(d);
 	if (p.invalid != -1)
 		return (r);
 	if (ft_strlen(d) != 0)
