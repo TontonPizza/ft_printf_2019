@@ -12,6 +12,25 @@
 
 #include "ft_printf.h"
 
+int			format_data_c(char *d, t_params p, int len)
+{
+	int		i;
+	int		count;
+
+	i = 0;
+	count = len;
+	while (p.hzero && p.zero > count && 1 + 0 * (count++))
+		i += write(1, "0", 1);
+	while (p.hpoint && p.point > count && 1 + 0 * (count++))
+		i += write(1, "0", 1);
+	while (p.hwidth && p.width > count && 1 + 0 * (count++))
+		i += write(1, " ", 1);
+	i += write(1, d, len);
+	while (p.hhyphen && p.hyphen > count && 1 + 0 * (count++))
+		i += write(1, " ", 1);
+	return (count);
+}
+
 int			parse_c(const char *format, va_list a)
 {
 	char		data;
@@ -22,7 +41,6 @@ int			parse_c(const char *format, va_list a)
 	p = read_params(format + 1, 'c', a);
 	data = va_arg(a, int);
 	data = (unsigned char)data;
-	update_params(&p, 'c');
 	result = malloc(sizeof(char) * 2);
 	result[0] = data;
 	result[1] = 0;
@@ -32,11 +50,7 @@ int			parse_c(const char *format, va_list a)
 		result = ft_strdup_to_c(format + p.invalid + 1, 'c');
 	}
 	else
-		result[0] = 0;
-	if (data != 0 && p.invalid == -1)
-		result = char_join_and_free(result, data);
+		result[0] = data;
 	i = ft_strlen(result);
-	ft_putstr_fd(result, 1);
-	free(result);
-	return (data == 0 ? i + 1 : i);
+	return (format_data_c(result, p, i == 0 ? 1 : i));
 }

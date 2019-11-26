@@ -25,6 +25,8 @@ char		*format_data_d(char *d, t_params p, int neg)
 			r = char_join_and_free(r, '0');
 		r = p.hpoint && neg < 0 ? char_join_and_free(r, '-') : r;
 	}
+	r = !p.hpoint && neg < 0 &&
+		(!p.hzero || p.zero <= ft_strlen(r)) ? char_join_and_free(r, '-') : r;
 	while (p.hzero && p.zero > ft_strlen(r))
 		r = char_join_and_free(r, p.hpoint ? ' ' : '0');
 	r[0] = r[0] == '0' && neg < 0 ? '-' : r[0];

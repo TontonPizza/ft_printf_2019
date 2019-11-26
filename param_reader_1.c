@@ -50,8 +50,8 @@ void				update_params(t_params *t, char c)
 		t->hyphen = -t->zero;
 		t->hzero = 0;
 	}
-	if (t->hpoint && t->point < 0)
-		t->point = -t->point;
+	if (t->hpoint && t->point < 0 && c != 's')
+		t->hpoint = 0;
 	t->hyphen = t->hyphen < 0 ? -t->hyphen : t->hyphen;
 }
 
