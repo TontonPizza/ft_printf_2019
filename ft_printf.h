@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                       :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vo-nguye <vo-nguye@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -20,18 +20,18 @@
 # include <unistd.h>
 # include "libft/libft.h"
 
-typedef struct		s_params
+typedef struct	s_params
 {
 	int		point;
-	int 	hyphen;
-	int 	zero;
-	int 	width;
-	int 	hpoint;
-	int 	hhyphen;
-	int 	hzero;
-	int 	hwidth;
-	int 	invalid;
-}					t_params;
+	int		hyphen;
+	int		zero;
+	int		width;
+	int		hpoint;
+	int		hhyphen;
+	int		hzero;
+	int		hwidth;
+	int		invalid;
+}				t_params;
 
 int				ft_printf(const char *format, ...);
 int				leo_printf(const char *format, ...);

@@ -62,5 +62,4 @@ char				*vo_itoa(long int n);
 void				free_many(char *s1, char *s2);
 char				*vo_strdup(const char *s1);
 
-
 #endif

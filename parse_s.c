@@ -15,20 +15,24 @@
 char		*format_data_s0(t_params p)
 {
 	char	*result;
-	int 	i = 0;
+	int		i;
+
+	i = 0;
 	result = ft_strdup("");
 	i = ft_strlen(result);
 	while (p.hhyphen && p.hyphen > i && 1 + 0 * (i++))
 		result = join_char_and_free(result, ' ');
 	while (p.hwidth && p.width > i && 1 + 0 * (i++))
 		result = char_join_and_free(result, ' ');
+	while (p.hwidth < 0 && -p.width > i && 1 + 0 * (i++))
+		result = join_char_and_free(result, ' ');
 	return (result);
 }
 
 char		*format_data_s(char *d, t_params p)
 {
 	char	*result;
-	int 	i;
+	int		i;
 
 	result = ft_strdup(d);
 	i = ft_strlen(result);
@@ -38,13 +42,15 @@ char		*format_data_s(char *d, t_params p)
 	i = ft_strlen(result);
 	if (i == 0)
 	{
-		free (result);
+		free(result);
 		return (format_data_s0(p));
 	}
 	while (p.hhyphen && p.hyphen > i && 1 + 0 * (i++))
 		result = join_char_and_free(result, ' ');
 	while (p.hwidth && p.width > i && 1 + 0 * (i++))
 		result = char_join_and_free(result, ' ');
+	while (p.hwidth < 0 && -p.width > i && 1 + 0 * (i++))
+		result = join_char_and_free(result, ' ');
 	return (result);
 }
 

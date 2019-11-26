@@ -15,7 +15,7 @@
 char		*format_data_i(char *d, t_params p, int neg)
 {
 	char	*r;
-	int 	i;
+	int		i;
 
 	r = ft_strdup(d);
 	if (ft_strlen(d) != 0)
@@ -29,8 +29,10 @@ char		*format_data_i(char *d, t_params p, int neg)
 	r[0] = r[0] == '0' && neg < 0 ? '-' : r[0];
 	while (p.hhyphen && p.hyphen > ft_strlen(r))
 		r = join_char_and_free(r, ' ');
-	while (p.hwidth && p.width && !p.hhyphen > ft_strlen(r))
+	while (p.hwidth && !p.hhyphen && p.width > 0 && p.width > ft_strlen(r))
 		r = char_join_and_free(r, ' ');
+	while (p.hwidth && !p.hhyphen && p.width < 0 && -p.width > ft_strlen(r))
+		r = join_char_and_free(r, ' ');
 	return (r);
 }
 
@@ -42,7 +44,7 @@ int			parse_i(const char *format, va_list a)
 	int			i;
 
 	i = 0;
-	p = read_params(format + 1,  'i', a);
+	p = read_params(format + 1, 'i', a);
 	update_params(&p, 'i');
 	data = va_arg(a, int);
 	if (data == 0 && p.point == 0 && p.hpoint)
@@ -54,7 +56,7 @@ int			parse_i(const char *format, va_list a)
 		free(result);
 		result = ft_strdup_to_c(format + p.invalid + 1, 'i');
 	}
-	result = format_data_d(result, p, data);
+	result = format_data_i(result, p, data);
 	i = ft_strlen(result);
 	ft_putstr_fd(result, 1);
 	free(result);

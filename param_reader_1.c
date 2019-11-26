@@ -12,7 +12,7 @@
 
 #include "ft_printf.h"
 
-int				is_legal_char(char c, char d)
+int					is_legal_char(char c, char d)
 {
 	if (ft_isdigit(c) && c != '0')
 		return (-1);
@@ -46,7 +46,7 @@ void				update_params(t_params *t, char c)
 		t->hyphen = -t->width;
 	if (t->hhyphen == 0 && t->zero < 0 && t->hzero)
 	{
-		t->hhyphen == 1;
+		t->hhyphen = 1;
 		t->hyphen = -t->zero;
 		t->hzero = 0;
 	}

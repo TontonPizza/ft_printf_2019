@@ -15,7 +15,7 @@
 char		*format_data_d(char *d, t_params p, int neg)
 {
 	char	*r;
-	int 	i;
+	int		i;
 
 	r = ft_strdup(d);
 	if (ft_strlen(d) != 0)
@@ -29,8 +29,10 @@ char		*format_data_d(char *d, t_params p, int neg)
 	r[0] = r[0] == '0' && neg < 0 ? '-' : r[0];
 	while (p.hhyphen && p.hyphen > ft_strlen(r))
 		r = join_char_and_free(r, ' ');
-	while (p.hwidth && p.width && !p.hhyphen > ft_strlen(r))
+	while (p.hwidth && !p.hhyphen && p.width > 0 && p.width > ft_strlen(r))
 		r = char_join_and_free(r, ' ');
+	while (p.hwidth && !p.hhyphen && p.width < 0 && -p.width > ft_strlen(r))
+		r = join_char_and_free(r, ' ');
 	return (r);
 }
 
@@ -60,4 +62,3 @@ int			parse_d(const char *format, va_list a)
 	free(result);
 	return (i);
 }
-

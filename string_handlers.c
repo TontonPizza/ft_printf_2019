@@ -83,4 +83,3 @@ char		*ft_strjoin_and_free(char *t1, char *t2)
 	free(t1);
 	return (result);
 }
-

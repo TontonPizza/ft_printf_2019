@@ -39,6 +39,7 @@ void		read_hyphen(const char *f, t_params *t, int *k, va_list arg)
 void		read_point(const char *f, t_params *t, int *k, va_list arg)
 {
 	int p;
+
 	if (f[1] == '*')
 	{
 		t->point = va_arg(arg, int);

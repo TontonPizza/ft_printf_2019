@@ -15,7 +15,7 @@
 char		*format_data_p(char *d, t_params p)
 {
 	char	*r;
-	int 	i;
+	int		i;
 
 	r = ft_strdup(d);
 	if (p.invalid != -1)
@@ -31,8 +31,10 @@ char		*format_data_p(char *d, t_params p)
 		r = char_join_and_free(r, p.hpoint ? ' ' : '0');
 	while (p.hhyphen && p.hyphen > ft_strlen(r))
 		r = join_char_and_free(r, ' ');
-	while (p.hwidth && p.width && !p.hhyphen > ft_strlen(r))
+	while (p.hwidth && !p.hhyphen && p.width > 0 && p.width > ft_strlen(r))
 		r = char_join_and_free(r, ' ');
+	while (p.hwidth && !p.hhyphen && p.width < 0 && -p.width > ft_strlen(r))
+		r = join_char_and_free(r, ' ');
 	return (r);
 }
 
