@@ -56,5 +56,7 @@ int			parse_c(const char *format, va_list a)
 	else
 		result[0] = data;
 	i = ft_strlen(result);
-	return (format_data_c(result, p, i == 0 ? 1 : i));
+	i = format_data_c(result, p, i == 0 ? 1 : i);
+	free(result);
+	return (i);
 }
