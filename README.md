@@ -1,3 +1,9 @@
-# ft_printf_2019
+![Final Grade](https://github.com/TontonPizza/ft_printf_2019/blob/master/100.png)
 
-Aucun bonus de fait, fonction 10 fois plus lente que le vrai printf
+# ft_printf
+
+### Il s'agit de recoder printf. 
+
+L'intérêt de ce projet est de se familiariser avec les arguments à taille variable.
+
+
